@@ -8,6 +8,8 @@
 		<title>Matriz de Pixeles</title>
 	</head>
 	<body>
-		<div></div>
+		<div>
+			<%=image.maker(request) %>
+		</div>
 	</body>
 </html>

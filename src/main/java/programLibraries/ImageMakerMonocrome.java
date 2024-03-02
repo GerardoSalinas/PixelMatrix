@@ -13,9 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class ImageMakerMonocrome {
 	
 	public String maker(HttpServletRequest req) {
-		if (req.getParameter("pixels") != null && 
-			req.getParameter("w") != null && 
-			req.getParameter("h") != null) {
+		if (req.getParameter("pixels") != null){
 			
 			String pixels = req.getParameter("pixels");
 			
