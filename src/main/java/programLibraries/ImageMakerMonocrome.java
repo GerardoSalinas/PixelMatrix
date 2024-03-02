@@ -1,8 +1,10 @@
 package programLibraries;
 
 import java.awt.image.BufferedImage;
+
 import java.awt.image.DataBufferByte;
 import java.io.File;
+import java.time.LocalTime;
 
 import javax.imageio.ImageIO;
 
@@ -17,7 +19,7 @@ public class ImageMakerMonocrome {
 			
 			String pixels = req.getParameter("pixels");
 			
-			File myFile = new File("/home/gasallinas/Pictures/","pixelImage.bmp");
+			File myFile = new File("/home/gasallinas/Pictures/",String.format("pixelImage_%s_.bmp",ImageMakerMonocrome.getTime()));
 			byte[] bytes = this.toBytes(pixels);
 			BufferedImage bufferedImage = new BufferedImage(25,25,BufferedImage.TYPE_BYTE_GRAY);
 			bufferedImage.setData(Raster.createRaster(bufferedImage.getSampleModel(), new DataBufferByte(bytes,bytes.length), null));
@@ -46,4 +48,12 @@ public class ImageMakerMonocrome {
 		
 		return bytes;
 	}
+	
+	public static String getTime() {
+		LocalTime currentTime = LocalTime.now();
+		
+		return String.format("%d-%d-%d",currentTime.getHour(),currentTime.getMinute(), currentTime.getSecond());
+	}
+	
+	
 }
