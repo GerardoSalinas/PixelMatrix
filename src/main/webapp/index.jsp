@@ -15,7 +15,7 @@
 		
 		<div id="container">
 		</div>
-		
+		<button id="clearButton">Clear</button>
 		<script src="./assets/js/Action.js"></script>
 		<script src="./assets/js/main.js" defer></script>
 	</body>

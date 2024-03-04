@@ -31,4 +31,10 @@ input {
 	float: left;
 }
 
+#clearButton {
+	position: fixed;
+	left: 15%;
+	bottom: 15%;
+}
+
 

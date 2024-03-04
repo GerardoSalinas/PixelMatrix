@@ -32,11 +32,19 @@ class Action {
 	static prueba(){
 		console.log("enviado");
 	}
+	
+	static clear (){
+		let pixels = this;
+		for (let i = 0; i<pixels.length; i++){
+			pixels[i].style.backgroundColor = "white";
+		}
+	}
 }
 
 let form = document.querySelector("form");
 let pixelInput = document.querySelector("input#pixelsInfo");
 let sendButton = document.querySelector("input#sendButton");
+let clearButton = document.querySelector("#clearButton");
 //let action = new Action();
 let container = document.querySelector("#container");
 
@@ -52,6 +60,8 @@ for (let i = 0; i<pixels.length; i++){
 //El error esta aqui y en el handler del evento
 sendButton.addEventListener("click",Action.sendForm.bind(form,pixels,pixelInput));
 
+
+clearButton.addEventListener("click",Action.clear.bind(pixels));
 
 
 
