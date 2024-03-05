@@ -4,14 +4,15 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Matriz de Pixeles</title>
+		<title>Matriz de Pixeles(Async)</title>
 		<link rel="stylesheet" href="./assets/css/styles.css">
 	</head>
 	<body>
-		<form action="service.jsp" method="get">
-			<input id="pixelsInfo" type="hidden" name="pixels">
-			<input id="sendButton" type="submit" value="Enviar"> 
-		</form>
+		<div id="form">
+			<button id="sendButton">Enviar</button>
+		</div>
+		<div id="answer">
+		</div>
 		
 		<div id="container">
 		</div>
