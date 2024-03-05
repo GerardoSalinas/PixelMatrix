@@ -13,6 +13,9 @@ import java.awt.image.Raster;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class ImageMakerMonocrome {
+	private String name;
+	
+	private String path;
 	
 	public String maker(HttpServletRequest req) {
 		if (req.getParameter("pixels") != null){
@@ -24,9 +27,13 @@ public class ImageMakerMonocrome {
 			BufferedImage bufferedImage = new BufferedImage(25,25,BufferedImage.TYPE_BYTE_GRAY);
 			bufferedImage.setData(Raster.createRaster(bufferedImage.getSampleModel(), new DataBufferByte(bytes,bytes.length), null));
 			
+			this.setName(myFile.getName());
+			this.setPath(myFile.getAbsolutePath());
+			
 			try {
 				ImageIO.write(bufferedImage,"bmp",myFile);
-				return String.format("Se ha creado la imagen %s en la ruta %s", myFile.getName(),myFile.getAbsolutePath());
+				//return String.format("Se ha creado la imagen %s en la ruta %s", this.getName(),this.getPath());
+				return String.format("{ \"name\": \"%s\", \"path\": \"%s\" } ",this.getName(),this.getPath());
 			}catch(Exception e) {
 				
 			}
@@ -53,6 +60,22 @@ public class ImageMakerMonocrome {
 		LocalTime currentTime = LocalTime.now();
 		
 		return String.format("%d-%d-%d",currentTime.getHour(),currentTime.getMinute(), currentTime.getSecond());
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 	
